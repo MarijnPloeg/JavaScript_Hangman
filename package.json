@@ -11,6 +11,7 @@
   "author": "Rein Op 't Land",
   "license": "SEE LICENSE.MD",
   "dependencies": {
+    "chalk": "^4.1.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

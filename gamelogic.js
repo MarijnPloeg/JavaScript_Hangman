@@ -1,4 +1,6 @@
 function displayWordSoFar(word, guesses) {
+  guesses = guesses.map(name => name.toLowerCase());
+  word = word.toLowerCase();
   // Split the word into an array
   let correctWord = word.split('');
   // Create an empty string to later be filled
