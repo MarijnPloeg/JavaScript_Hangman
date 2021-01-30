@@ -30,13 +30,28 @@ function isGameWon(word, guesses) {
 }
 
 function isGameLost(word, guesses) {
-  // isGameLost should return true if you've guessed 7 wrong letters or more
-  let amountOfGuesses = guesses.length;
-  return amountOfGuesses >= 7;
+  const mistakeCount = countWrongGuesses(word, guesses);
+
+  const MAX_MISTAKE_COUNT = 7;
+  return mistakeCount >= MAX_MISTAKE_COUNT;
 }
+
+function countWrongGuesses (word, guesses) {
+  let mistakeCount = 0;
+  for (let index = 0; index < guesses.length; index++) {
+    const guess = guesses[index];
+    const isGuessCorrect = word.includes(guess);
+    if (!isGuessCorrect) {
+      mistakeCount = mistakeCount + 1;
+    }
+  }
+  return mistakeCount;
+}
+
 
 module.exports = {
   displayWordSoFar: displayWordSoFar,
   isGameWon: isGameWon,
   isGameLost: isGameLost,
+  countWrongGuesses: countWrongGuesses,
 };
